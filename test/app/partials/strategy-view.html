@@ -1,0 +1,39 @@
+<div class="muted">Strategy for:</div>
+<div class="hero-unit">
+	<h3>{{strategy.title}}</h3>
+	<div class="buttons">
+		<a href="#/edit/{{strategy._id.$oid}}" class="btn btn-primary btn-small">Edit</a>
+	</div>
+</div>
+<div class="muted">Vision:</div>
+<p class="lead">
+	{{strategy.vision}}
+</p>
+<a href="#/goal-edit" class="btn btn-primary btn-medium">+ Goal</a>
+<div class="row">
+	<div class="span6" ng-repeat="goal in strategy.goals | filter:search | orderBy:'title'">
+		<div class="well">
+			<h3>{{goal.title}}</h3>
+			<div style="text-align: left"><a class="btn btn-primary btn-small">+ Action</a></div>
+			<hr />
+			<div class="actions">
+				<blockquote ng-repeat="action in goal.actions | filter:search | orderBy:'title'">
+					<p>{{action.title}}</p>
+					<p>
+						<span>My challenges:</span><span>{{action.challenge}}</span>
+					</p>
+					<p>
+						<span class="label label-info">
+							<i class="icon-time icon-white"></i>
+							{{action.start_date}}
+						</span>
+					</p>
+					<p style="text-align: center">
+						<a href="#/edit-action" class="btn btn-primary btn-small">Edit</a>
+						<a class="btn btn-danger btn-small">Delete</a>
+					</p>
+				</blockquote>
+			</div>
+		</div>
+	</div>
+</div>

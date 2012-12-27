@@ -1,0 +1,8 @@
+<!-- Main hero unit for a primary marketing message or call to action -->
+<input type="text" ng-model="search" class="search-query" placeholder="Search">
+<a class="btn btn-primary btn-large" style="float:right" href="#/new">+ Strategy</a>
+<hr />
+<div ng-repeat="strategy in strategies | filter:search | orderBy:'title'" class="hero-unit">
+	<h3><a href="#/view/{{strategy._id.$oid}}">{{strategy.title}}</a></h3>
+	<p>{{strategy.vision}}</p>
+</div>
